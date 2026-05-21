@@ -25,7 +25,7 @@ function LobbyPage() {
       id: crypto.randomUUID(),
       name: `Guest ${players.length + 1}`,
       coins: 1000,
-      isReady: false,
+      isReady: true,
     }
     addPlayer(guest)
   }
