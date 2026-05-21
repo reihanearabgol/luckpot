@@ -12,7 +12,8 @@ function LobbyPage() {
   const setScreen = useGameStore((state) => state.setScreen)
 
   // Derived data
-  const allReady = players.length >= 2 && players.every((p) => p.isReady)
+  // const allReady = players.length >= 2 && players.every((p) => p.isReady)
+  const allReady = players.length >= 2 && players.every((p) => p.isReady === true)
   const isCurrentPlayerReady = players.find(
     (p) => p.id === currentPlayer?.id
   )?.isReady

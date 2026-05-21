@@ -12,6 +12,7 @@ function CreateRoomPage() {
   const currentPlayer = useGameStore((state) => state.currentPlayer)
   const setRoom = useGameStore((state) => state.setRoom)
   const addPlayer = useGameStore((state) => state.addPlayer)
+  // const setScreen = useGameStore((state) => state.setScreen)
   const setScreen = useGameStore((state) => state.setScreen)
 
   function handleCreate() {
@@ -42,11 +43,16 @@ function CreateRoomPage() {
       hostId: currentPlayer!.id,
     }
 
-    // Save room and add host as first player
-    setRoom(room)
-    addPlayer(currentPlayer!)
-    setScreen('lobby')
-  }
+  //   // Save room and add host as first player
+  //   setRoom(room)
+  //   addPlayer(currentPlayer!)
+  //   setScreen('lobby')
+  // }
+  // Clear old players first, then add host
+setRoom(room)
+resetGame()
+addPlayer({ ...currentPlayer!, isReady: false })
+setScreen('lobby')
 
   return (
     <Container>
